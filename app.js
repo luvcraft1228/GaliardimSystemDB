@@ -1,7 +1,23 @@
+const HTTP_PORT = 3000;
+
+const express = require("express");
+const app = express();
+const path = require("path");
+const routes = require("./routes");
+
 const db = require("./database");
-const User = require("./database/models/user.model");
+const Habilete = require("./database/models/habilete.model");
 const manager = require("./manager");
-const Post = require("./database/models/post.model");
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "public")));
+app.set("view engine", "pug");
+app.use("/", routes);
+
+app.listen(HTTP_PORT, () => {
+  console.log(`serveur demarre sur port: ${HTTP_PORT}`);
+});
+
 db.connect(() => {
   console.log("Possibilité d'utiliser la base de donnée ici !");
 

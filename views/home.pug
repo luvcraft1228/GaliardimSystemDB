@@ -1,0 +1,19 @@
+extends layouts/main
+
+block content
+    h2 Ajouter une Habilete
+    form(action="Post")
+        .side
+            input(type="text", name="nom", placeholder="Nom de l'habilete")
+            textarea( name="flavorText", placeholder="Description en jeu de l'habilete")
+            textarea( name="description", placeholder="Description hors jeu de l'habilete")
+            input(type="text", name="frequence", placeholder="Fréquence")
+            input(type="text", name="portee", placeholder="Portée")
+        .side    
+            input(type="text", class="prerequis", name="prerequis1", placeholder="Prérequis")
+            input(type="text", class="prerequis", name="prerequis2", placeholder="Prérequis")
+            input(type="text", class="prerequis", name="prerequis3", placeholder="Prérequis")
+            input(type="text", class="prerequis", name="prerequis4", placeholder="Prérequis")
+
+            input(type="number", name="cout", placeholder="cout")
+            input(type="submit", value="Soumettre")
